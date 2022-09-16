@@ -236,7 +236,7 @@
             .then(ibexa.helpers.request.getTextFromResponse)
             .then(() => {
                 currentDraggedItem.classList.remove('ibexa-collapse--field-definition-loading');
-                afterChangeGroup()
+                afterChangeGroup();
             })
             .catch(ibexa.helpers.notification.showErrorNotification);
     };
@@ -431,14 +431,12 @@
             return item.isSameNode(this.anchoredPlaceholder) ? 0 : event.clientY;
         }
 
-
         onDragStart(event) {
             super.onDragStart(event);
 
             currentDraggedItem = event.currentTarget;
             sourceContainer = currentDraggedItem.parentNode;
         }
-
 
         onDragOver(event) {
             const isDragSuccessful = super.onDragOver(event);
