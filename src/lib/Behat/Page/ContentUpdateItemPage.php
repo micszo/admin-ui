@@ -30,7 +30,7 @@ class ContentUpdateItemPage extends Page
     private $pageTitle;
 
     /** @var \Ibexa\AdminUi\Behat\Component\Fields\FieldTypeComponent[] */
-    private $fieldTypeComponents;
+    protected $fieldTypeComponents;
 
     /** @var \Ibexa\AdminUi\Behat\Component\Notification */
     private $notification;
@@ -44,7 +44,7 @@ class ContentUpdateItemPage extends Page
     ) {
         parent::__construct($session, $router);
         $this->contentActionsMenu = $contentActionsMenu;
-        $this->fieldTypeComponents = iterator_to_array($fieldTypeComponents);
+        $this->fieldTypeComponents = $fieldTypeComponents;
         $this->notification = $notification;
     }
 
@@ -96,7 +96,7 @@ class ContentUpdateItemPage extends Page
             new VisibleCSSLocator('pageTitle', '.ibexa-edit-header__title'),
             new VisibleCSSLocator('formElement', 'form.ibexa-form'),
             new VisibleCSSLocator('closeButton', '.ibexa-anchor-navigation-menu__close'),
-            new VisibleCSSLocator('nthField', '.ibexa-field-edit:nth-of-type(%s)'),
+            new VisibleCSSLocator('nthField', 'div.ibexa-field-edit:nth-of-type(%s)'),
             new VisibleCSSLocator('fieldGroupNthField', '[data-id="%s"] .ibexa-field-edit:nth-of-type(%s)'),
             new VisibleCSSLocator('noneditableFieldClass', 'ibexa-field-edit--eznoneditable'),
             new VisibleCSSLocator('fieldOfType', '.ibexa-field-edit--%s'),
